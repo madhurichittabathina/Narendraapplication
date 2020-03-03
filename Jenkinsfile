@@ -7,11 +7,26 @@ pipeline {
             git 'https://github.com/RamachandraAnnadi/WhatsupDOC.git'
          }
        }
-        stage('Compile') {
-            steps {
-                gradlew('cleanAll', 'loadDefault')
-            }
-        }
+         tools {
+        maven 'Maven'
+    }
+stages {
+ stage('Preparation') {
+     steps {
+// for display purposes
+//test only
+      // Get some code from a GitHub repository
+      git 'https://github.com/RamachandraAnnadi/WhatsupDOC.git'
+      // Get the Maven tool.
+ // ** NOTE: This 'M3' Maven tool must be configured
+     // **       in the global configuration.
+     }
+   }
+   stage('Build') {
+       steps {
+       // Run the maven build
+               sh 'mvn -Dmaven.test.failure.ignore=true install'
+      }
      stage('sonar and unit test parallel running') {	
      parallel {
 	stage('Unit Tests') {
