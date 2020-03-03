@@ -24,19 +24,15 @@ def private_ip = ''
        // Run the maven build
                sh 'mvn -Dmaven.test.failure.ignore=true install'
       }
+    
      stage('sonar and unit test parallel running') {	
      parallel {
-stage('Unit Tests') {
-          steps {
-               gradlew('test')
-           }
-           post {
-            always {
-                   junit '**/build/test-results/TEST-*.xml'
-                }
-            }
-         }
-stage('Sonarqube') {
+   stage('Unit Tests') {
+     steps {
+      junit '**/target/surefire-reports/TEST-*.xml'
+      }
+                   }
+    stage('Sonarqube') {
           environment {
            scannerHome = tool 'sonarqube'
           }
