@@ -55,7 +55,7 @@ stages {
     spec: '''{
           "files": [
             {
-              "pattern": "/var/lib/jenkins/workspace/whatsupdoc-demo/build/libs/whatsupdoc.war",
+              "pattern": "/var/lib/jenkins/workspace/whatsupDOC/target/cangkitsolutions.war",
               "target": "whatsupdoc-repo-crm-files"
             }
          ]
