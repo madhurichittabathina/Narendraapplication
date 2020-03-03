@@ -17,10 +17,8 @@ def private_ip = ''
       // Get the Maven tool.
  // ** NOTE: This 'M3' Maven tool must be configured
      // **       in the global configuration.
-     }
-   }
-   stage('Build') {
-       steps {
+     stage('Build') {
+        steps {
        // Run the maven build
                sh 'mvn -Dmaven.test.failure.ignore=true install'
       }
@@ -126,3 +124,5 @@ def private_ip = ''
 }   
 } 
 }
+  }
+ }
