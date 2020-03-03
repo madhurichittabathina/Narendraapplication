@@ -1,5 +1,5 @@
-pipeline {
-    agent any
+
+​pipeline {    agent any
 
        stages {
        stage('Preparation') {
@@ -29,7 +29,7 @@ stages {
       }
      stage('sonar and unit test parallel running') {	
      parallel {
-	stage('Unit Tests') {
+stage('Unit Tests') {
           steps {
                gradlew('test')
            }
@@ -39,20 +39,20 @@ stages {
                 }
             }
          }
-	stage('Sonarqube') {
+stage('Sonarqube') {
           environment {
            scannerHome = tool 'sonarqube'
           }
         steps {
            withSonarQubeEnv('sonarqube') {
-	    sh "echo ${scannerhome}"
+     sh "echo ${scannerhome}"
             sh "${scannerHome}/bin/sonar-scanner"
           }
             timeout(time: 30, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
            }
-	   
-	   }
+    
+    }
      }
      }
   }
@@ -86,7 +86,7 @@ stages {
             }
        }
        
-	   //stage('install_deps') {
+    //stage('install_deps') {
         //steps {
          //sh label: '', script: 'sudo yum install wget zip python-pip -y'
          //sh "cd /tmp"
@@ -112,7 +112,7 @@ stages {
         //sh "def time = params.SLEEP_TIME_IN_SECONDS"
         //sh "echo "Waiting ${SLEEP_TIME_IN_SECONDS} seconds for deployment to complete prior starting smoke testing""
             sleep(time:90,unit:"SECONDS")
-	}
+}
     }
       stage ('login to aws') {
         steps {
@@ -130,8 +130,7 @@ stages {
 
     }
 }
-}			
+}   
 } 
-def gradlew(String... args) {
-    sh "./gradlew ${args.join(' ')} -s"
+}
 }
