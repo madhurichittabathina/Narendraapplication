@@ -7,15 +7,8 @@ def private_ip = ''
         tools {
         maven 'Maven'
     }
-       stages {
-       stage('Preparation') {
-           steps {
-            git 'https://github.com/RamachandraAnnadi/WhatsupDOC.git'
-         }
-       }
-     }
-stages {
- stage('Preparation') {
+  stages {
+    stage('Preparation') {
      steps {
 // for display purposes
 //test only
