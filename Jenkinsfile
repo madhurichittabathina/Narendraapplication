@@ -1,6 +1,12 @@
-
-​pipeline {    agent any
-
+def private_ip = ''
+ pipeline {
+ 
+   agent {
+                        label "master"
+                                       }
+        tools {
+        maven 'Maven'
+    }
        stages {
        stage('Preparation') {
            steps {
