@@ -93,6 +93,13 @@ sh "sudo terraform apply -auto-approve /var/lib/jenkins/workspace"
 sh "terraform output > private_ip"
 }
 }
+ stage ("preparing for EC2 creation") {
+       steps { 
+        //sh "def time = params.SLEEP_TIME_IN_SECONDS"
+        //sh "echo "Waiting ${SLEEP_TIME_IN_SECONDS} seconds for deployment to complete prior starting smoke testing""
+            sleep(time:90,unit:"SECONDS")
+	}
+    }
 stage ('login to aws') {
 steps {
 script { 
