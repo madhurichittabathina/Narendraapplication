@@ -2,8 +2,8 @@
 <!-- this is comment -->
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>com.cangksolutions</groupId>
-	<artifactId>cangk</artifactId>
+	<groupId>com.qentelli</groupId>
+	<artifactId>whatsupdoc</artifactId>
 	<packaging>war</packaging>
 	<version>1.1-RELEASE</version>
 
@@ -25,7 +25,7 @@
 	</dependencies>
 	
 	<build>
-		<finalName>cangkitsolutions</finalName>
+		<finalName>qentellisolutions</finalName>
 	
  
 	<plugins>
@@ -62,4 +62,3 @@
 	</build>
 	
 </project>
-
