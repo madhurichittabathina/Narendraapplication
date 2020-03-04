@@ -101,24 +101,19 @@ sh "terraform output > private_ip"
 	}
     }
 stage ('login to aws') {
-steps {
-script { 
- //   private_ip = sh(script: "cat /var/lib/jenkins/workspace/WhatsupDOC-production/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}",
-  //returnStdout: true,
-  //)
-   //private_ip = sh(script: "cat /var/lib/jenkins/workspace/WhatsupDOC-production/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}|tr -d {'\"'}|tr -d '\r'")
-   //private_ip = sh(script: "cat /var/lib/jenkins/workspace/WhatsupDOC-production/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}|tr -d {'\"'}|tr -d '\r'", returnStdout: true,).trim()
-     private_ip = sh(script: "cat /tmp/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}|tr -d {'\"'}|tr -d '\r'", returnStdout: true,).trim()  
- //private_ip = sh(script: "echo ${private_ip}", returnStdout: true,).trim()
+        steps {
+         script { 
+ 
+          private_ip = sh(script: "cat /tmp/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}|tr -d {'\"'}|tr -d '\r'", returnStdout: true,).trim()
+   
      }
+         sh "cp /var/lib/jenkins/docker-deploy.sh ."
+         sh "ls"
 
-//sh 'ssh 'cat private_ip | awk {'NR==2'} | tr -d {' '} | tr -d {'"'} |tr -d ',' ''
-sh "cp /var/lib/jenkins/docker-deploy.sh ."
-sh "ls"
-//sh "ssh jenkins@'cat private_ip | awk {'NR==2'} | tr -d {' '} | tr -d {'"'} |tr -d ',' 'bash -s' < docker-deploy.sh $BUILD_NUMBER"
-sh "ssh -T jenkins@${private_ip} 'bash -s' < docker-deploy.sh $BUILD_NUMBER"
+         sh "ssh -o StrictHostKeyChecking=no jenkins@${private_ip} 'bash -s' < docker-deploy.sh $BUILD_NUMBER"
 
     }
+}
 }
 }
 post {
@@ -128,5 +123,4 @@ post {
         //failure {
           //  mail to:"ramachandra.annadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
         //}
-}
 }
