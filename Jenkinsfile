@@ -107,7 +107,7 @@ stage ('login to aws') {
           private_ip = sh(script: "cat /tmp/private_ip | head -2 |tail -1|tr -d {' '}|tr -d {','}|tr -d {'\"'}|tr -d '\r'", returnStdout: true,).trim()
    
      }
-         sh "cp /var/lib/jenkins/docker-deploy.sh ."
+         sh "cp /var/lib/jenkins/workspace/whatsupDOC/docker-deploy.sh ."
          sh "ls"
 
          sh "ssh -o StrictHostKeyChecking=no jenkins@${private_ip} 'bash -s' < docker-deploy.sh $BUILD_NUMBER"
