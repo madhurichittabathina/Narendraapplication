@@ -117,8 +117,8 @@ post {
         success {
             archiveArtifacts 'WhatsupDOC-web/target/*.war'
         }
-        failure {
-            mail to:"ramachandra.annadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
-        }
+        //failure {
+          //  mail to:"ramachandra.annadi@qentelli.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
+        //}
 }
 }
