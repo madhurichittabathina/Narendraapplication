@@ -36,10 +36,10 @@ jobs:
       env:
        # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
        GITHUB_TOKEN: 9021b1208eda164e342460a4c9059c61e6fc10ec
-      run: mvn sonar:sonar \
+      run: mvn sonar:sonar 
          -Dsonar.login=6edc2d3c60eb8b19e9aec5681db376b6707e7665
-         -Dsonar.host.url=http://18.223.76.84:9000 \
-         -Dsonar.projectKey=Qentellisolutions \
+         -Dsonar.host.url=http://18.223.76.84:9000 
+         -Dsonar.projectKey=Qentellisolutions 
          -Dsonar.exclusions=**/*.java,**/*.jar
     - uses: HurricanKai/Publish-Docker-Github-Action@master
       with:
