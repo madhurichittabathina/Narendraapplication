@@ -53,9 +53,9 @@ jobs:
       uses: FTsbrown/msteams-action@v1.0.1
       with: 
         # Title of the message
-         TITLE: Build Status
+         TITLE: Team notifications
         # Body of the message
-         BODY: Build-Success
+         BODY: Build Status
         # If set, A MS Teams notification will be sent to this webhook
          MS_TEAMS_WEBHOOK: https://outlook.office.com/webhook/1880ec80-4a8d-4b3a-acdd-210b0c825748@44e65903-6f89-4a2d-a7dd-a3542dc38775/JenkinsCI/2ec2fda47af345dfb51258749a8044e3/79fd4a4a-b56a-4090-ac7a-57088e1367dd
          
