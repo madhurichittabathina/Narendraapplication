@@ -1,3 +1,3 @@
 
 #!/bin/bash
-sh /root/apache-tomcat-9.0.20/bin/startup.sh
+sh /root/apache-tomcat-8.5.56/bin/startup.sh
