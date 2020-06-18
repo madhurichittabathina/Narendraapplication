@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: target/cangkitsolutions.war
-    destination: /root/apache-tomcat-9.0.20/webapps
+    destination: /root/apache-tomcat-8.5.56/webapps
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
