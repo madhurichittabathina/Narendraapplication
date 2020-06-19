@@ -1,5 +1,5 @@
 version: 0.0
-os: linux-ubuntu
+os: linux
 files:
   - source: target/cangkitsolutions.war
     destination: /root/apache-tomcat-9.0.36/webapps
